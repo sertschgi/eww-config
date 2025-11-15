@@ -1,0 +1,17 @@
+(defpoll hour :interval "1s" "date '+%H'")
+(defpoll minute :interval "1s" "date '+%M'")
+
+(defwidget clock []
+  (box :class "clock"
+       :orientation "h"
+       :space-evenly false
+       :valign "end"
+       :halign "center"
+
+				(button
+					(box :orientation "v" :spacing 2 :height "100px"
+              (box :class "hour" hour)
+              (box :class "minute" minute)
+          ))
+  )
+)

@@ -1,0 +1,55 @@
+$background-color: rgb(21, 25, 24);
+$widget-background-color: rgba(255, 255, 255, 0.1);
+
+* {
+  all: unset;
+  font-family: JetBrainsMono;
+  font-weight: bold;
+}
+
+.top-bar-window,
+.right-bar-window,
+.bottom-bar-window,
+.left-bar-window {
+  background-color: $background-color
+}
+
+.tl-corner {
+  background: radial-gradient(at bottom right, transparent 20px, $background-color 0px);
+}
+
+.tr-corner {
+  background: radial-gradient(at bottom left, transparent 20px, $background-color 0px);
+}
+
+.br-corner {
+  background: radial-gradient(at top right, transparent 20px, $background-color 0px);
+}
+
+.bl-corner {
+  background: radial-gradient(at top left, transparent 20px, $background-color 0px);
+}
+
+
+.left-bar-widgets {
+  /* background-color: green; */
+  padding: 20px;
+}
+
+.workspaces {
+  background-color: $widget-background-color;
+  padding: 6px;
+  border-radius: 20px;
+
+  button {
+    padding: 4px 8px;
+    border-radius: 15px;
+    background-color: $widget-background-color;
+  }
+}
+
+.clock {
+  background-color: $widget-background-color;
+  padding: 5px;
+  border-radius: 5px;
+}

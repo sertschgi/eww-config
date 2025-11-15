@@ -1,0 +1,43 @@
+(defwindow tl-corner
+  :monitor 0
+  :geometry (geometry :x "0%" :y "0%" :width "20px" :height "20px" :anchor "top left")
+  :stacking "fg"
+  :windowtype "dock"
+  :wm-ignore false 
+  :focusable false 
+  :exclusive false 
+  ""
+)
+
+(defwindow tr-corner
+  :monitor 0
+  :geometry (geometry :x "0%" :y "0%" :width "20px" :height "20px" :anchor "top right")
+  :stacking "fg"
+  :windowtype "dock"
+  :wm-ignore false 
+  :focusable false 
+  :exclusive false 
+  ""
+)
+
+(defwindow br-corner
+  :monitor 0
+  :geometry (geometry :x "0%" :y "0%" :width "20px" :height "20px" :anchor "bottom left")
+  :stacking "fg"
+  :windowtype "dock"
+  :wm-ignore false 
+  :focusable false 
+  :exclusive false 
+  ""
+)
+
+(defwindow bl-corner
+  :monitor 0
+  :geometry (geometry :x "0%" :y "0%" :width "20px" :height "20px" :anchor "bottom right")
+  :stacking "fg"
+  :windowtype "dock"
+  :wm-ignore false 
+  :focusable false 
+  :exclusive false 
+  ""
+)

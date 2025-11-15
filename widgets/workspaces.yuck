@@ -1,0 +1,41 @@
+(deflisten workspace0 "hyprland-workspaces `hyprctl monitors -j | jq -r \".[0].name\"`")
+(deflisten workspace1 "hyprland-workspaces `hyprctl monitors -j | jq -r \".[1].name\"`")
+
+(defwidget workspaces0 []
+  (eventbox :onscroll "hyprctl dispatch workspace `echo {} | sed 's/up/+/\' | sed 's/down/-/'`1"
+    (box :class "workspaces"
+      (for i in workspace0
+        (button
+          :onclick "hyprctl dispatch workspace ${i.id}"
+          :class "${i.class}"
+          "${i.name}")))))
+
+(defwidget workspaces1 []
+  (eventbox :onscroll "hyprctl dispatch workspace `echo {} | sed 's/up/+/\' | sed 's/down/-/'`1"
+    (box :class "workspaces"
+      (for i in workspace1
+        (button
+          :onclick "hyprctl dispatch workspace ${i.id}"
+          :class "${i.class}"
+          "${i.name}")))))
+
+
+(defwidget workspace []
+  (box
+    (workspaces1)
+    (other_widget))
+)
+
+(defwidget workspaces []
+  (box :class "workspaces"
+       :orientation "v"
+       :valign "start"
+       :halign "center"
+       :spacing "5"
+    (button :onclick "wmctrl -s 0" '1')
+    (button :onclick "wmctrl -s 1" '')
+    (button :onclick "wmctrl -s 2" '')
+    (button :onclick "wmctrl -s 3" '')
+    (button :onclick "wmctrl -s 4" '')
+    (button :onclick "wmctrl -s 5" '')
+))

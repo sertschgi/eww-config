@@ -1,0 +1,2 @@
+
+(defvar foo "initial value")

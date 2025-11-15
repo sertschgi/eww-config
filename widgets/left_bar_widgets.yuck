@@ -1,0 +1,11 @@
+(include "./widgets/clock.yuck")
+(include "./widgets/workspaces.yuck")
+
+(defwidget left-bar-widgets [] 
+   (box
+      :class "left-bar-widgets"
+      :orientation "v"
+      (workspaces)
+      (clock) 
+   )   
+)
