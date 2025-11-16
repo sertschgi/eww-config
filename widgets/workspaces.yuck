@@ -1,15 +1,15 @@
-(deflisten desc "socat -U - UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | sed -unE 's/workspace>>(.*),//p'")
+(deflisten current_ws :initial `["1","","","",""]` `socat -U - UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | sed -unE 's/workspace>>//p' | jq -Rc --unbuffered 'tonumber as $i | ["", "", "", "", ""] | .[$i - 1] = $i'`)
 
 (defwidget workspaces []
   (box :class "workspaces"
-       :orientation "v"
-       :valign "start"
-       :halign "center"
-       :spacing "5"
-    (button :onclick "wmctrl -s 0" '1')
-    (button :onclick "wmctrl -s 1" '')
-    (button :onclick "wmctrl -s 2" '')
-    (button :onclick "wmctrl -s 3" '')
-    (button :onclick "wmctrl -s 4" '')
-    (button :onclick "wmctrl -s 5" '')
-))
+    :orientation "v"
+    :valign "start"
+    :halign "center"
+    :spacing "5"
+    (for i in current_ws 
+      (button
+        "${i}"
+      )
+    )
+  ) 
+)
