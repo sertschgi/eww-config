@@ -1,0 +1,13 @@
+(include "./widgets/clock.yuck")
+(include "./widgets/shutdown_button.yuck")
+
+(defwidget bottom-widgets []
+  (box
+    :class "bottom-widgets"
+    :orientation "v"
+    :halign "center"
+    :valign "end"
+    (clock)
+    (shutdown-button)
+  )
+)

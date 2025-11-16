@@ -1,0 +1,15 @@
+(defwidget shutdown-button []
+  (box
+    :class "shutdown-button"
+    :halign "center"
+    :valign "end"
+    (button
+      :onclick "shutdown now"
+      (image 
+        :path "./assets/shutdown_button.svg"
+        :height "100px"
+        :width "100px"
+      )
+    )
+  )
+)

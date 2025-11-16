@@ -1,0 +1,8 @@
+(deflisten desc "socat -U - UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | sed -unE 's/activewindow>>(.*),//p'")
+
+(defwidget app-desc []
+  (label
+    :text desc
+    :angle 90
+  )
+)

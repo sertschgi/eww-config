@@ -1,11 +1,13 @@
-(include "./widgets/clock.yuck")
 (include "./widgets/workspaces.yuck")
+(include "./widgets/bottom_widgets.yuck")
+(include "./widgets/app_desc.yuck")
 
 (defwidget left-bar-widgets [] 
    (box
       :class "left-bar-widgets"
       :orientation "v"
       (workspaces)
-      (clock) 
+      (app-desc)
+      (bottom-widgets)
    )   
 )
