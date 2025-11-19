@@ -17,21 +17,35 @@
     (box 
       :class "graphs"
       :orientation "v"
-      (graph
-        :valign "end"
-        :height 20
-        :time-range "10s"
-        :class "mem"
-        :value "${EWW_CPU.avg}"
-        :tooltip "avg cpu usage"
+      (overlay
+        :space-evenly false
+        :tooltip "avg mem usage ${EWW_RAM.used_mem_perc}
+avg cpu usage ${EWW_CPU.avg}"
+        (graph
+          :height 30
+          :time-range "10s"
+          :class "cpu"
+          :value "${EWW_CPU.avg}"
+        )
+        (graph
+          :height 30
+          :time-range "10s"
+          :class "mem"
+          :value "${EWW_RAM.used_mem_perc}"
+        )
+
       )
+    )
+    (box 
+      :class "graphs ${EWW_BATTERY.BAT0.status} bat-container"
+      :orientation "v"
+      :tooltip "battery ${EWW_BATTERY.BAT0.status} at ${EWW_BATTERY.total_avg}"
       (graph
-        :valign "end"
-        :height 20
+        :height 30
         :time-range "10s"
-        :class "cpu"
-        :value "${EWW_RAM.used_mem}"
-        :tooltip "avg cpu usage"
+        :line-style "round"
+        :class "bat"
+        :value "${EWW_BATTERY.total_avg}"
       )
     )
     (clock)

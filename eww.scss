@@ -102,12 +102,25 @@ menu {
 .graphs {
   background-color: $widget-background-color;
   border-radius: 5px;
+  padding: 5px;
 
   .mem {
-    background-color: rgba(200, 50, 50, 0.3);
+    color: rgb(50, 50, 200);
+    background-color: rgba(50, 50, 200, 0.3);
   }
 
   .cpu {
+    color: rgb(50, 200, 50);
     background-color: rgba(50, 200, 50, 0.3);
   }
+
+}
+
+.Charging {
+  background-color: rgba(60, 100, 200, 0.3);
+}
+
+.bat {
+  color: transparent;
+  background-color: rgba(255, 255, 255, 0.3);
 }
