@@ -3,8 +3,9 @@
     :class "shutdown-button"
     :halign "center"
     :valign "end"
+    :tooltip "shutdown"
     (button
-      :onclick "shutdown now"
+      :onclick "loginctl poweroff"
       (image 
         :path "./assets/shutdown_button.svg"
         :height "100px"
