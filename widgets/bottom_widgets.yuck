@@ -7,6 +7,17 @@
     :orientation "v"
     :halign "center"
     :valign "end"
+    :spacing 20
+    :space-evenly false
+    (systray
+      :orientation "v"
+      :icon-size 25
+      :spacing 5
+    )
+    (graph
+      :class "graph cpu_graph"
+      :value "${EWW_CPU.avg}"
+    )
     (clock)
     (shutdown-button)
   )

@@ -1,14 +1,32 @@
-(deflisten current_ws :initial `["1","","","",""]` `socat -U - UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | sed -unE 's/workspace>>//p' | jq -Rc --unbuffered 'tonumber as $i | ["", "", "", "", ""] | .[$i - 1] = $i'`)
+(deflisten current_ws :initial `[
+  { "text": 1, "class": "active" },
+  { "text": 2, "class": "" },
+  { "text": 3, "class": "" },
+  { "text": 4, "class": "" },
+  { "text": 5, "class": "" }
+]` `socat -U - UNIX-CONNECT:$XDG_RUNTIME_DIR/hypr/$HYPRLAND_INSTANCE_SIGNATURE/.socket2.sock | sed -unE 's/workspace>>//p' | jq -Rc --unbuffered 'tonumber as $i | [{text: "1", class: ""},{text: "2", class: ""},{text: "3", class: ""},{text: "4", class: ""},{text: "5", class: ""}] | .[$i - 1].class = "active"'`)
+
 
 (defwidget workspaces []
   (box :class "workspaces"
     :orientation "v"
     :valign "start"
     :halign "center"
-    :spacing "5"
-    (for i in current_ws 
+    :spacing 1
+    (for ws in current_ws 
       (button
-        "${i}"
+        :onclick "hyprctl dispatch workspace ${ws.text}"
+        :class "${ws.class}"
+        (box
+          :class "box"
+          :space-evenly true 
+          (label 
+            :width 10 
+            :height 10
+            :valign "center"
+            :halign "center"
+            :text "${ws.text}")
+        )
       )
     )
   ) 
