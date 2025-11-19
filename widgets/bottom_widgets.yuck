@@ -14,9 +14,25 @@
       :icon-size 25
       :spacing 5
     )
-    (graph
-      :class "graph cpu_graph"
-      :value "${EWW_CPU.avg}"
+    (box 
+      :class "graphs"
+      :orientation "v"
+      (graph
+        :valign "end"
+        :height 20
+        :time-range "10s"
+        :class "mem"
+        :value "${EWW_CPU.avg}"
+        :tooltip "avg cpu usage"
+      )
+      (graph
+        :valign "end"
+        :height 20
+        :time-range "10s"
+        :class "cpu"
+        :value "${EWW_RAM.used_mem}"
+        :tooltip "avg cpu usage"
+      )
     )
     (clock)
     (shutdown-button)
